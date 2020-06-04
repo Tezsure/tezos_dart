@@ -1,2 +1,2 @@
 # tezos_dart
-Dart kit for Tezos to build applications using fluteer framework
+Dart package for Tezos to build native mobile applications and web applications using flutter framework.
