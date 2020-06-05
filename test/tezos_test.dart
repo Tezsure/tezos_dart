@@ -12,7 +12,7 @@ void main() {
 
   test('Get Keys From Mnemonics and PassPhrase', () async {
     List<String> keys =
-        await Tezos.getKeysFromMnemonicAndPassphrase(mnemonic: testMnemonics);
+        await TezosDart.getKeysFromMnemonicAndPassphrase(mnemonic: testMnemonics);
     expect(keys[0],
         "edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC");
     expect(keys[1], "edpkuLog552hecagkykJ3fTvop6grTMhfZY4TWbvchDWdYyxCHcrQL");
@@ -20,7 +20,7 @@ void main() {
   });
 
   test('Sign Operation Group', () async {
-    List<String> keys = await Tezos.signOperationGroup(
+    List<String> keys = await TezosDart.signOperationGroup(
       forgedOperation: testForgedOperation,
       publicKey: testPublicKey,
     );
@@ -31,7 +31,7 @@ void main() {
   });
 
   test('Unlock Fundraiser Identity', () async {
-    List<String> keys = await Tezos.unlockFundraiserIdentity(
+    List<String> keys = await TezosDart.unlockFundraiserIdentity(
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       email: "lkbpoife.tobqgidu@tezos.example.org",

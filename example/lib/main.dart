@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
 
   generateKeys() async {
     //Generate Keys from Mnemonic and passphrase
-    List<String> keys = await Tezos.getKeysFromMnemonicAndPassphrase(
+    List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(
       mnemonic: mnemonicFromInputText,
     );
     print("keys ===> $keys");
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     //Accessing: private key ===> keys[0] | public key ===> keys[1] | public Key Hash ===> identity[2] all of type string
 
     //Sign Operation with publicKey and forgedOperation
-    List<String> signOperationGroup = await Tezos.signOperationGroup(
+    List<String> signOperationGroup = await TezosDart.signOperationGroup(
       publicKey: publicKey,
       forgedOperation: forgedOperation,
     );
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
 
   unlockIdentity() async {
     //Unlock Fundraiser Identity.
-    List<String> identityFundraiser = await Tezos.unlockFundraiserIdentity(
+    List<String> identityFundraiser = await TezosDart.unlockFundraiserIdentity(
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       email: "lkbpoife.tobqgidu@tezos.example.org",
@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
     //Accessing: private key ===> identityFundraiser[0] | public key ===> identityFundraiser[1] | public Key Hash ===> identityFundraiser[2] all of type string.
 
     //Unlock Identity With Mnemonic.
-    List<String> identityWithMnemonic = await Tezos.unlockIdentityWithMnemonic(
+    List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonic(
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       password: "5tjpU0cimq",
@@ -68,9 +68,9 @@ class _MyAppState extends State<MyApp> {
   }
 
   generateMnemonic() {
-    String nmemonic = Tezos
+    String mnemonic = TezosDart
         .generateMnemonic(); // strength is optional, by default it's 256 ==> Generates 24 words.
-    print("nmemonic ===> $nmemonic");
+    print("mnemonic ===> $mnemonic");
     // nmemonic ===> 24 random words, [If strength parameter is changed the words length differs.]
   }
 
@@ -90,7 +90,7 @@ class _MyAppState extends State<MyApp> {
           padding: EdgeInsets.all(8.0),
           child: Center(
             child: Text(
-              "A demo application for flutter_tezos package.\n Please check the debug console for the outputs",
+              "Welcome to Tezos_dart package.\n Please check the debug console for the outputs",
               textAlign: TextAlign.center,
             ),
           ),

@@ -12,7 +12,7 @@ import "package:unorm_dart/unorm_dart.dart" as unorm;
 import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:convert/convert.dart';
 
-class Tezos {
+class TezosDart {
   static Future<List<String>> getKeysFromMnemonicAndPassphrase({
     String mnemonic,
   }) async {
