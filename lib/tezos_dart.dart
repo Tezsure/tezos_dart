@@ -30,17 +30,17 @@ class TezosDart {
   }
 
   static Future<List<String>> signOperationGroup({
-    String publicKey,
+    String privateKey,
     String forgedOperation,
   }) async {
-    assert(publicKey != null);
+    assert(privateKey != null);
     assert(forgedOperation != null);
     String watermarkedForgedOperationBytesHex = '03' + forgedOperation;
     List<int> hexStringToListOfInt =
         hex.decode(watermarkedForgedOperationBytesHex);
     Uint8List hashedWatermarkedOpBytes =
         Blake2bHash.hashWithDigestSize(256, hexStringToListOfInt);
-    Uint8List privateKeyBytes = bs58check.decode(publicKey);
+    Uint8List privateKeyBytes = bs58check.decode(privateKey);
     List<int> pkB = List.from(privateKeyBytes);
     pkB.removeRange(0, 4);
     Uint8List finalPKb = Uint8List.fromList(pkB);

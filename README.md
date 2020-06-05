@@ -1,44 +1,57 @@
 # Tezos_dart
 
-A flutter package to use Tezos functionalities.Tezos_dart package contains all the function that is required to build tezos application.
+[![Star on GitHub](https://img.shields.io/github/stars/Tezsure/tezos_dart?style=flat&logo=github&colorB=green&label=stars)](https://github.com/Tezsure/tezos_dart)
+[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![Github issues](https://img.shields.io/github/issues/Tezsure/tezos_dart)](https://github.com/Tezsure/tezos_dart/issues?q=is%3Aissue+is%3Aopen+)
 
-### What is Tezos?
+A library for building decentralized applications in Flutter, currently focused on the Tezos platform. Tezos_dart package contains all the function that is required to build tezos application.
 
-Tezos is a decentralized ledger that makes use of blockchain technology. Like Ethereum, Tezos is designed to make use of smart contracts.
+## What is Tezos
 
+Tezos is a decentralized blockchain that governs itself by establishing a true digital commonwealth. It facilitates formal verification, a technique which mathematically proves the correctness of the code governing transactions and boosts the security of the most sensitive or financially weighted smart contracts.
+
+### Features
+
+* Tezos wallet utilities.
+  * Generate mnemonics
+  * Generate keys from mnemonics and passphrase.
+  * Signed operation group.
+  * Unlock fundraiser identity
+  * Unlock identity with mnemonics
+  
 ### Getting started
 
-Check out the `example` directory for a sample app using Tezos_dart.
+Check out the `example` directory for a sample app for using Tezos_dart.
 
 ### Import using
 
-```
+``` dart
 import 'package:tezos_dart/tezos_dart.dart';
 ```
 
-### Samples
+### Usage
 
 * Generate mnemonic
 
-```
-String mnemonic = Tezos.generateMnemonic(); // sustain laugh capital drop brush artist ahead blossom bread spring motor other mountain thumb volcano engine shed guilt famous loud force hundred same brave
+``` dart
+String mnemonic = TezosDart.generateMnemonic(); // sustain laugh capital drop brush artist ahead blossom bread spring motor other mountain thumb volcano engine shed guilt famous loud force hundred same brave
 ```
 
 * Generate keys from mnemonic and passphrase
 
-```
-List<String> keys = await Tezos.getKeysFromMnemonicAndPassphrase(mnemonic: "Your Mnemonic");
+``` dart
+List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(mnemonic: "Your Mnemonic");
 
 /* [edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC,
    edpkuLog552hecagkykJ3fTvop6grTMhfZY4TWbvchDWdYyxCHcrQL,
    tz1g85oYHLFKDpNfDHPeBUbi3S7pUsgCB28q] */
 ```
 
-* Sign operation with public Key and forged Operation
+* Sign operation with private Key and forged Operation
 
-```
-List<String> signOperationGroup = await Tezos.signOperationGroup(
-    publicKey: "edskRdV..... .XezixvdA",
+``` dart
+List<String> signOperationGroup = await TezosDart.signOperationGroup(
+    privateKey: "edskRdV..... .XezixvdA",
     forgedOperation: "713cb068fe.... .b940ee");
 
 /* [edsigtrBnsjSngfP6LULUDeo84eJVks4LWReYrZBUjKQNJjhVsG7bksqZ7CKnRePMceMe3vgRHHbyd2CqRdC8iEAK5NcyNn4iEB,
@@ -47,11 +60,11 @@ List<String> signOperationGroup = await Tezos.signOperationGroup(
 
 * Unlock fundraiser identity.
 
-```
-List<String> identityFundraiser = await Tezos.unlockFundraiserIdentity(
+``` dart
+List<String> identityFundraiser = await TezosDart.unlockFundraiserIdentity(
     mnemonic: "your mnemonic",
     email: "test@example.com",
-    password: "pa$$w0rd");
+    password: "pa$\$w0rd");
 
 /* [edskRzNDm2dpqe2yd5zYAw1vmjr8sAwMubfcXajxdCNNr4Ud39BoppeqMAzoCPmb14mzfXRhjtydQjCbqU2VzWrsq6JP4D9GVb,
     edpkvASxrq16v5Awxpz4XPTA2d6QFaCL8expPrPNcVgVbWxT84Kdw2,
@@ -60,10 +73,10 @@ List<String> identityFundraiser = await Tezos.unlockFundraiserIdentity(
 
 * Unlock identity With Mnemonic.
 
-```
-List<String> identityWithMnemonic = await Tezos.unlockIdentityWithMnemonic(
+``` dart
+List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonic(
       mnemonic: "your mnemonic",
-      password: "pa$$w0rd");
+      password: "pa$\$w0rd");
 
 /* [edskS9kdgvCWDiZL1yP1qH5xLCWYHQub4qibfU8DQZjv7wX7BskxSsL6h9j1yDYJ7Y9jDbMULNmfLhw9vBJPqDw3TeVHHd34w7,
     edpkuRr9yHChSt2MTWHCeHe2JM3zJZxHgj8vEANwb8WENrZbLxYzbx,
@@ -71,7 +84,7 @@ List<String> identityWithMnemonic = await Tezos.unlockIdentityWithMnemonic(
 ```
 
 ---
-**NOTE**
-Use stable version of flutter to avoid  package conflicts.
+**NOTE:**
+Use stable version of flutter to avoid package conflicts.
 
 ---

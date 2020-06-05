@@ -1,7 +1,6 @@
 name: tezos_dart
 description: >-
-  Tezos_dart package contains all the functionality for
-  developing tezos app.
+  A flutter package which provides the functionalities to play around with tezos dApps
 version: 0.0.1
 homepage: https://github.com/Tezsure/tezos_dart
 

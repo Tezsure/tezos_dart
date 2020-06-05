@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
       "luxury bulb roast timber sense stove sugar sketch goddess host meadow decorate gather salmon funny person canoe daring machine network camp moment wrong dice";
 
   //Input for Sign Operation Group function
-  String publicKey =
+  String privateKey =
       "edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC";
   String forgedOperation =
       "713cb068fe3ac078351727eb5c34279e22b75b0cf4dc0a8d3d599e27031db136040cb9f9da085607c05cac1ca4c62a3f3cfb8146aa9b7f631e52f877a1d363474404da8130b0b940ee";
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
 
     //Sign Operation with publicKey and forgedOperation
     List<String> signOperationGroup = await TezosDart.signOperationGroup(
-      publicKey: publicKey,
+      privateKey: privateKey,
       forgedOperation: forgedOperation,
     );
     print("signOperationGroup ===> $signOperationGroup");
@@ -57,7 +57,8 @@ class _MyAppState extends State<MyApp> {
     //Accessing: private key ===> identityFundraiser[0] | public key ===> identityFundraiser[1] | public Key Hash ===> identityFundraiser[2] all of type string.
 
     //Unlock Identity With Mnemonic.
-    List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonic(
+    List<String> identityWithMnemonic =
+        await TezosDart.unlockIdentityWithMnemonic(
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       password: "5tjpU0cimq",

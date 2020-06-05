@@ -3,7 +3,7 @@ import 'package:tezos_dart/tezos_dart.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  String testPublicKey =
+  String testPrivateKey =
       "edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC";
   String testForgedOperation =
       "713cb068fe3ac078351727eb5c34279e22b75b0cf4dc0a8d3d599e27031db136040cb9f9da085607c05cac1ca4c62a3f3cfb8146aa9b7f631e52f877a1d363474404da8130b0b940ee";
@@ -22,7 +22,7 @@ void main() {
   test('Sign Operation Group', () async {
     List<String> keys = await TezosDart.signOperationGroup(
       forgedOperation: testForgedOperation,
-      publicKey: testPublicKey,
+      privateKey: testPrivateKey,
     );
     expect(keys[0],
         "edsigtrBnsjSngfP6LULUDeo84eJVks4LWReYrZBUjKQNJjhVsG7bksqZ7CKnRePMceMe3vgRHHbyd2CqRdC8iEAK5NcyNn4iEB");
