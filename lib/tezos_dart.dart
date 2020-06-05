@@ -13,7 +13,7 @@ import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:convert/convert.dart';
 
 class TezosDart {
-  static Future<List<String>> getKeysFromMnemonicAndPassphrase({
+  static Future<List<String>> getKeysFromMnemonic({
     String mnemonic,
   }) async {
     assert(mnemonic != null);
@@ -99,7 +99,7 @@ class TezosDart {
     );
   }
 
-  static Future<List<String>> unlockIdentityWithMnemonic({
+  static Future<List<String>> unlockIdentityWithMnemonicAndPassword({
     String mnemonic,
     String password,
   }) async {

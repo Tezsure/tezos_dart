@@ -37,7 +37,7 @@ import 'package:tezos_dart/tezos_dart.dart';
 String mnemonic = TezosDart.generateMnemonic(); // sustain laugh capital drop brush artist ahead blossom bread spring motor other mountain thumb volcano engine shed guilt famous loud force hundred same brave
 ```
 
-* Generate keys from mnemonic and passphrase
+* Generate keys from mnemonic
 
 ``` dart
 List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(mnemonic: "Your Mnemonic");
@@ -71,10 +71,10 @@ List<String> identityFundraiser = await TezosDart.unlockFundraiserIdentity(
     tz1hhkSbaocSWm3wawZUuUdX57L3maSH16Pv] */
 ```
 
-* Unlock identity With Mnemonic.
+* Unlock identity with mnemonic and password.
 
 ``` dart
-List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonic(
+List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonicAndPassword(
       mnemonic: "your mnemonic",
       password: "pa$\$w0rd");
 
@@ -88,3 +88,7 @@ List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonic(
 Use stable version of flutter to avoid package conflicts.
 
 ---
+
+### Feature requests and bugs
+
+Please file feature requests and bugs at the [issue tracker](https://github.com/Tezsure/tezos_dart/issues/new). If you want to contribute to this libary, please submit a Pull Request.

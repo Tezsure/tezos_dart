@@ -1,6 +1,8 @@
-// All the functions are called in initState(){} for reference.
-// Check Debug console for outputs.
+// All the functions are called in initState(){}
+// For reference please check Debug console for outputs.
 // Just run the project you must see the print statement outputs in debug console.
+
+// NOTE: please get the tezos_dart package under pubspec.yaml before running the project
 
 import 'package:flutter/material.dart';
 import 'package:tezos_dart/tezos_dart.dart';
@@ -25,9 +27,16 @@ class _MyAppState extends State<MyApp> {
   String forgedOperation =
       "713cb068fe3ac078351727eb5c34279e22b75b0cf4dc0a8d3d599e27031db136040cb9f9da085607c05cac1ca4c62a3f3cfb8146aa9b7f631e52f877a1d363474404da8130b0b940ee";
 
+  generateMnemonic() {
+    String mnemonic = TezosDart
+        .generateMnemonic(); // strength is optional, by default it's 256 ==> Generates 24 words.
+    print("mnemonic ===> $mnemonic");
+    // nmemonic ===> 24 random words, [If strength parameter is changed the words length differs.]
+  }
+
   generateKeys() async {
     //Generate Keys from Mnemonic and passphrase
-    List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(
+    List<String> keys = await TezosDart.getKeysFromMnemonic(
       mnemonic: mnemonicFromInputText,
     );
     print("keys ===> $keys");
@@ -58,7 +67,7 @@ class _MyAppState extends State<MyApp> {
 
     //Unlock Identity With Mnemonic.
     List<String> identityWithMnemonic =
-        await TezosDart.unlockIdentityWithMnemonic(
+        await TezosDart.unlockIdentityWithMnemonicAndPassword(
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       password: "5tjpU0cimq",
@@ -68,19 +77,12 @@ class _MyAppState extends State<MyApp> {
     // Accessing: private key ===> identityWithMnemonic[0] | public key ===> identityWithMnemonic[1] | public Key Hash ===> identityWithMnemonic[2] all of type string.
   }
 
-  generateMnemonic() {
-    String mnemonic = TezosDart
-        .generateMnemonic(); // strength is optional, by default it's 256 ==> Generates 24 words.
-    print("mnemonic ===> $mnemonic");
-    // nmemonic ===> 24 random words, [If strength parameter is changed the words length differs.]
-  }
-
   @override
   void initState() {
     super.initState();
+    generateMnemonic();
     generateKeys();
     unlockIdentity();
-    generateMnemonic();
   }
 
   @override
