@@ -3,7 +3,6 @@
 // Just run the project you must see the print statement outputs in debug console.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tezos_dart/tezos_dart.dart';
 
 void main() {
