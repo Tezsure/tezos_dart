@@ -40,7 +40,7 @@ String mnemonic = TezosDart.generateMnemonic(); // sustain laugh capital drop br
 * Generate keys from mnemonic
 
 ``` dart
-List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(mnemonic: "Your Mnemonic");
+List<String> keys = await TezosDart.getKeysFromMnemonic(mnemonic: "Your Mnemonic");
 
 /* [edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC,
    edpkuLog552hecagkykJ3fTvop6grTMhfZY4TWbvchDWdYyxCHcrQL,
