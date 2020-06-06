@@ -1,6 +1,6 @@
 // All the functions are called in initState(){}
 // For reference please check Debug console for outputs.
-// Just run the project you must see the print statement outputs in debug console.
+// Just run the project you must see the print statement outputs in debug console. It may take few seconds to reflect the output.
 
 // NOTE: please get the tezos_dart package under pubspec.yaml before running the project
 
@@ -88,6 +88,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Padding(
           padding: EdgeInsets.all(8.0),
