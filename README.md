@@ -1,4 +1,4 @@
-# Tezos_dart
+# tezos_dart
 
 [![Star on GitHub](https://img.shields.io/github/stars/Tezsure/tezos_dart?style=flat&logo=github&colorB=green&label=stars)](https://github.com/Tezsure/tezos_dart)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
