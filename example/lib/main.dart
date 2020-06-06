@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   generateKeys() async {
-    //Generate Keys from Mnemonic and passphrase
+    //Generate Keys from Mnemonic
     List<String> keys = await TezosDart.getKeysFromMnemonic(
       mnemonic: mnemonicFromInputText,
     );
