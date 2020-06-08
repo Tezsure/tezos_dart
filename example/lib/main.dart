@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   //Generate mnemonic
     String mnemonic = TezosDart.generateMnemonic(); // strength is optional, by default it's 256 ==> Generates 24 words.
     print("mnemonic ===> $mnemonic");
-  // nmemonic ===> 24 random words, [If strength parameter is changed the words length differs.]
+  //mnemonic ===> 24 random words, [If strength parameter is changed the words length differs.]
   
   //Generate keys from mnemonic
     List<String> keys = await TezosDart.getKeysFromMnemonic(
