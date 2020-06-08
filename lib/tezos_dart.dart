@@ -13,6 +13,10 @@ import 'package:flutter_sodium/flutter_sodium.dart';
 import 'package:convert/convert.dart';
 
 class TezosDart {
+  static String generateMnemonic({int strength = 256}) {
+    return bip39.generateMnemonic(strength: strength);
+  }
+
   static Future<List<String>> getKeysFromMnemonic({
     String mnemonic,
   }) async {
@@ -27,6 +31,32 @@ class TezosDart {
     String pkKey = GenerateKeys.readKeysWithHint(pk, '0d0f25d9');
     String pkKeyHash = GenerateKeys.computeKeyHash(pk);
     return [skKey, pkKey, pkKeyHash];
+  }
+
+  static Future<List<String>> getKeysFromMnemonicAndPassphrase({
+    String mnemonic,
+    String passphrase,
+  }) async {
+    assert(mnemonic != null);
+    assert(passphrase != null);
+    return await _unlockKeys(
+      passphrase: passphrase,
+      mnemonic: mnemonic,
+    );
+  }
+
+  static Future<List<String>> unlockFundraiserIdentity({
+    String mnemonic,
+    String email,
+    String passphrase = "",
+  }) async {
+    assert(mnemonic != null);
+    assert(email != null);
+    return await _unlockKeys(
+      email: email,
+      passphrase: passphrase,
+      mnemonic: mnemonic,
+    );
   }
 
   static Future<List<String>> signOperationGroup({
@@ -59,11 +89,12 @@ class TezosDart {
 
   static Future<List<String>> _unlockKeys({
     String mnemonic,
-    String password = "",
+    String passphrase = "",
     String email = "",
   }) async {
     assert(mnemonic != null);
-    assert(password != null);
+    assert(passphrase != null);
+
     List<int> stringNormalize(String stringToNormalize) {
       String normalizedString = unorm.nfkd(stringToNormalize);
       List<int> stringToBuffer = utf8.encode(normalizedString);
@@ -72,8 +103,8 @@ class TezosDart {
 
     List<int> mnemonicsBuffer = stringNormalize(mnemonic);
     String m = String.fromCharCodes(mnemonicsBuffer);
-    List<int> normalizedPassword = stringNormalize("$email" + "$password");
-    String normString = String.fromCharCodes(normalizedPassword);
+    List<int> normalizedPassphrase= stringNormalize("$email" + "$passphrase");
+    String normString = String.fromCharCodes(normalizedPassphrase);
     String p = "mnemonic" + normString;
     Uint8List seed = PBKDF2(hashAlgorithm: sha512).generateKey(m, p, 2048, 32);
     Map<dynamic, dynamic> keys = await Sodium.cryptoSignSeedKeypair(seed);
@@ -83,35 +114,5 @@ class TezosDart {
     String pkKey = GenerateKeys.readKeysWithHint(pk, '0d0f25d9');
     String pkKeyHash = GenerateKeys.computeKeyHash(pk);
     return [skKey, pkKey, pkKeyHash];
-  }
-
-  static Future<List<String>> unlockFundraiserIdentity({
-    String mnemonic,
-    String email,
-    String password = "",
-  }) async {
-    assert(mnemonic != null);
-    assert(email != null);
-    return await _unlockKeys(
-      email: email,
-      password: password,
-      mnemonic: mnemonic,
-    );
-  }
-
-  static Future<List<String>> unlockIdentityWithMnemonicAndPassword({
-    String mnemonic,
-    String password,
-  }) async {
-    assert(mnemonic != null);
-    assert(password != null);
-    return await _unlockKeys(
-      password: password,
-      mnemonic: mnemonic,
-    );
-  }
-
-  static String generateMnemonic({int strength = 256}) {
-    return bip39.generateMnemonic(strength: strength);
   }
 }
