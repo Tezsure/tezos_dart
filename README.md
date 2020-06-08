@@ -13,15 +13,15 @@ Tezos is a decentralized blockchain that governs itself by establishing a true d
 ### Features
 
 * Tezos wallet utilities.
-  * Generate mnemonics
+  * Generate mnemonics.
+  * Generate keys from mnemonic.
   * Generate keys from mnemonics and passphrase.
-  * Signed operation group.
-  * Unlock fundraiser identity
-  * Unlock identity with mnemonics
+  * Sign Operation Group.
+  * Unlock fundraiser identity.
   
 ### Getting started
 
-Check out the `example` directory for a sample app for using Tezos_dart.
+Check out the [example](https://github.com/Tezsure/tezos_dart/tree/master/example) directory for a sample app for using Tezos_dart.
 
 ### Import using
 
