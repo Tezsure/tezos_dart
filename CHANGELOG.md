@@ -3,8 +3,8 @@
 Initial version of library.
 
 * Functions added:
-  * Generate mnemonics
+  * Generate mnemonics.
+  * Generate keys from mnemonic.
   * Generate keys from mnemonics and passphrase.
-  * Signed operation group.
-  * Unlock fundraiser identity
-  * Unlock identity with mnemonics
+  * Sign Operation Group.
+  * Unlock fundraiser identity.

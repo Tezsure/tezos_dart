@@ -13,15 +13,15 @@ Tezos is a decentralized blockchain that governs itself by establishing a true d
 ### Features
 
 * Tezos wallet utilities.
-  * Generate mnemonics
+  * Generate mnemonics.
+  * Generate keys from mnemonic.
   * Generate keys from mnemonics and passphrase.
-  * Signed operation group.
-  * Unlock fundraiser identity
-  * Unlock identity with mnemonics
+  * Sign Operation Group.
+  * Unlock fundraiser identity.
   
 ### Getting started
 
-Check out the `example` directory for a sample app for using Tezos_dart.
+Check out the [example](https://github.com/Tezsure/tezos_dart/tree/master/example) directory for a sample app for using Tezos_dart.
 
 ### Import using
 
@@ -40,14 +40,26 @@ String mnemonic = TezosDart.generateMnemonic(); // sustain laugh capital drop br
 * Generate keys from mnemonic
 
 ``` dart
-List<String> keys = await TezosDart.getKeysFromMnemonicAndPassphrase(mnemonic: "Your Mnemonic");
+List<String> keys = await TezosDart.getKeysFromMnemonic(mnemonic: "Your Mnemonic");
 
 /* [edskRdVS5H9YCRAG8yqZkX2nUTbGcaDqjYgopkJwRuPUnYzCn3t9ZGksncTLYe33bFjq29pRhpvjQizCCzmugMGhJiXezixvdC,
    edpkuLog552hecagkykJ3fTvop6grTMhfZY4TWbvchDWdYyxCHcrQL,
    tz1g85oYHLFKDpNfDHPeBUbi3S7pUsgCB28q] */
 ```
 
-* Sign operation with private Key and forged Operation
+* Create / Unlock identity from mnemonic and passphrase.
+
+``` dart
+List<String> identityWithMnemonic = await TezosDart.getKeysFromMnemonicAndPassphrase(
+      mnemonic: "your mnemonic",
+      passphrase: "pa$\$w0rd");
+
+/* [edskS9kdgvCWDiZL1yP1qH5xLCWYHQub4qibfU8DQZjv7wX7BskxSsL6h9j1yDYJ7Y9jDbMULNmfLhw9vBJPqDw3TeVHHd34w7,
+    edpkuRr9yHChSt2MTWHCeHe2JM3zJZxHgj8vEANwb8WENrZbLxYzbx,
+    tz1hTe7oxtQr67dg6dWfTX3V44oPY7pzkFZS] */
+```
+
+* Sign operation with private key and forged operation
 
 ``` dart
 List<String> signOperationGroup = await TezosDart.signOperationGroup(
@@ -69,18 +81,6 @@ List<String> identityFundraiser = await TezosDart.unlockFundraiserIdentity(
 /* [edskRzNDm2dpqe2yd5zYAw1vmjr8sAwMubfcXajxdCNNr4Ud39BoppeqMAzoCPmb14mzfXRhjtydQjCbqU2VzWrsq6JP4D9GVb,
     edpkvASxrq16v5Awxpz4XPTA2d6QFaCL8expPrPNcVgVbWxT84Kdw2,
     tz1hhkSbaocSWm3wawZUuUdX57L3maSH16Pv] */
-```
-
-* Unlock identity with mnemonic and password.
-
-``` dart
-List<String> identityWithMnemonic = await TezosDart.unlockIdentityWithMnemonicAndPassword(
-      mnemonic: "your mnemonic",
-      password: "pa$\$w0rd");
-
-/* [edskS9kdgvCWDiZL1yP1qH5xLCWYHQub4qibfU8DQZjv7wX7BskxSsL6h9j1yDYJ7Y9jDbMULNmfLhw9vBJPqDw3TeVHHd34w7,
-    edpkuRr9yHChSt2MTWHCeHe2JM3zJZxHgj8vEANwb8WENrZbLxYzbx,
-    tz1hTe7oxtQr67dg6dWfTX3V44oPY7pzkFZS] */
 ```
 
 ---

@@ -35,7 +35,7 @@ void main() {
       mnemonic:
           "cannon rabbit obvious drama slogan net acoustic donor core acoustic clinic poem travel plunge winter",
       email: "lkbpoife.tobqgidu@tezos.example.org",
-      password: "5tjpU0cimq",
+      passphrase: "5tjpU0cimq",
     );
     expect(keys[0],
         "edskRzNDm2dpqe2yd5zYAw1vmjr8sAwMubfcXajxdCNNr4Ud39BoppeqMAzoCPmb14mzfXRhjtydQjCbqU2VzWrsq6JP4D9GVb");
